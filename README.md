@@ -11,9 +11,12 @@ open the terminal
 open cmd
 In cmd create a virtual enviorment ( mkvirtualenv env )
 Activate the virtual enviorment ( workon env )
+install django for the virtual environment by
+pip install django 
 Migrate the model by:
 python manage.py makemigrations
 python manage.py migrate
+pip install mysqlclient ( if necessary)
 Run the project by:
 python manage.py runserver
 ```
