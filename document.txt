@@ -1,4 +1,4 @@
-Simple Blog Application with user Authentication 
+     Simple Blog Application with user Authentication 
 
 In this project, I have done a blog application with user authentication. This project is built using the 
 Django web framework.
