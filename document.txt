@@ -1,0 +1,21 @@
+Simple Blog Application with user Authentication 
+
+In this project, I have done a blog application with user authentication. This project is built using the 
+Django web framework.
+
+# Features :
+
+* User Authentication: 
+   Implemented using Django's built-in authentication system.
+
+* Post CRUD Operations:
+   Create, Read, Update, and Delete operations on blog posts.
+
+* User Permissions:
+   Only authenticated users can perform certain actions, and only the author of a post can modify it.
+
+* Views:
+   Utilized function-based views for handling different functionalities.
+
+* Templates:
+   Separate HTML templates for each view to maintain code organization.
