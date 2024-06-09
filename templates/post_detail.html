@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<head>
+    <script src="https://kit.fontawesome.com/fbe819dd43.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #c9d6ff;
+            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+        }
+        .lead {
+             font-family: "Muli"; 
+             font-weight: 300; 
+             line-height: 1.8; 
+            }
+            h2{
+                text-transform: uppercase;
+                
+                margin-top: 10px;
+            }
+            a {
+                color: #252525;
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
+                text-decoration: none !important;
+              }
+              h4{
+                font-family: 'Muli', sans-serif;
+                font-weight: bold;
+                line-height: inherit;
+              }
+              p {
+                color: #757575;
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 24px;
+              }
+              .footer {
+                width: 100%;
+                background-color: #4a5e57;
+                bottom: 0;
+                color: white;
+                padding: 20px 0;
+                text-align: center;
+            }
+            .actions {
+                margin-top: 20px;
+            }
+            .actions a {
+                text-decoration: none;
+                color: #4CAF50;
+                background-color: #e7f4e8;
+                padding: 8px 12px;
+                border-radius: 4px;
+                margin-right: 10px;
+                transition: background-color 0.3s ease;
+            }
+            .actions a:hover {
+                background-color: #c8e6c9;
+            }
+            .section-btn {
+                background-color: #e7f4e8;
+                border-radius: 50px;
+                border: 1px solid #ffffff;
+                color: #4CAF50;
+                font-size: inherit;
+                font-weight: normal;
+                padding: 15px 30px;
+                transition: 0.5s;
+              }
+            
+              .section-btn:hover {
+                background: #ffffff;
+                border-color: transparent;
+              }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+             <h2>{{ post.title }}</h2>
+
+             <p class="lead">
+                  <i class="fa fa-user"></i> {{ post.author.username }} &nbsp;&nbsp;&nbsp;
+                  <i class="fa fa-calendar"></i>  {{ post.created_at }} &nbsp;&nbsp;&nbsp;
+                  
+             </p>
+
+             <br>
+
+             <h4>{{ post.title }}</h4>
+             <p>Last updated: {{ post.updated_at }}</p>
+             <h6>{{ post.content }}</h6>
+             <br>
+             <br>
+
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="pull-right">
+                        <h4>Social share</h4>
+                        <p>
+                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a> &nbsp;&nbsp;&nbsp;
+                            <a href="#" target="_blank"><i class="fa fa-twitter"></i></a> &nbsp;&nbsp;&nbsp;
+                            <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        </p>
+                    </div>
+                    <br>
+                    <div>
+                        <p>
+                            Blogging is just writing - writing using a particularly efficient type of publishing technology
+                        </p>
+                    </div>
+                    <div class="actions">
+                        <a href="{% url 'post_edit' post.pk %}">Edit Your Blog <i class="fa-solid fa-pen-to-square" style="color:blue;"></i></a>
+                        <a href="{% url 'post_delete' post.pk %}">Delete <i class="fa-solid fa-trash" style="color:red;"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Leave a Comment</h4>
+                    <form action="#" class="form">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">Name</label>
+                                    <input type="text" name="name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input type="email" name="email" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Message</label>
+                            <textarea name="comment" class="form-control" rows="4" autocomplete="off"></textarea>
+                        </div>
+                        <button type="submit" class="section-btn btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <br>
+        </div>
+   </section>
+   <footer style="margin-top: 100px;">
+    <div class="footer">
+      <div class="contain">
+        <p style="color:white;">&copy; 2024 Created by Renuka. All rights reserved.</p>
+      </div>
+    </div>
+</footer>
+</body>
+{% endblock content %}

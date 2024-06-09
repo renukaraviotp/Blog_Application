@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma&display=swap');
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #c9d6ff;
+        background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+        min-width: 1000px;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        margin-top: 0;
+        color: #333;
+        text-align: center;
+    }
+
+    .new-post {
+        display: block;
+        width: 150px;
+        margin: 20px auto;
+        padding: 10px;
+        text-align: center;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .new-post:hover {
+        background-color: #45a049;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        padding: 20px;
+        transition: transform 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card a {
+        text-decoration: none;
+        color: #4CAF50;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .card p {
+        color: #555;
+        margin: 10px 0 0;
+    }
+
+    .card span {
+        color: #999;
+        font-size: 0.9em;
+    }
+
+    .footer {
+        width: 100%;
+        background-color: #4a5e57;
+        bottom: 0;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    h2, .btitle {
+        color: #4a5e57;
+        font-size: 30px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: 'Baloo Tamma', cursive;
+        transition: 4s;
+        text-shadow: -1px -1px 0px #d7dfee,
+        1px 1px 0px #d7dfee,
+        2px 2px 0px #00000055;
+    }
+
+    .actions {
+        margin-top: 20px;
+    }
+
+    .actions a {
+        text-decoration: none;
+        color: #4CAF50;
+        background-color: #e7f4e8;
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin-right: 10px;
+        transition: background-color 0.3s ease;
+        font-size: 0.75em;
+    }
+
+    .actions a:hover {
+        background-color: #c8e6c9;
+    }
+
+    @media (max-width: 1200px) {
+        body {
+            min-width: auto;
+        }
+
+        .container {
+            width: 90%;
+        }
+
+        .card {
+            width: 45%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        body {
+            min-width: auto;
+        }
+
+        .container {
+            width: 95%;
+            padding: 10px;
+        }
+
+        .card {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        body {
+            min-width: auto;
+        }
+
+        .container {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        .actions a {
+            font-size: 0.65em;
+            padding: 6px 10px;
+        }
+    }
+</style>
+
+<body>
+    <br>
+    <section>
+        <div class="container">
+            <div class="text-center">
+                <h2>Blog posts</h2>
+                <br>
+                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, velit consequuntur.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="card-container">
+            {% for post in posts %}
+                <div class="card">
+                    <a href="{% url 'post_detail' post.pk %}" class="btitle" style="text-transform: uppercase;">{{ post.title }}</a>
+                    <p>Created by <b><span style="font-weight: 1000; color:#08f13b;text-transform: uppercase;">{{ post.author }}</span></b></p>
+                    <p>Created at: {{ post.created_at|date:"F j, Y, g:i a" }}</p>
+                    <p>Last updated: {{ post.updated_at|date:"F j, Y, g:i a" }}</p>
+                    <div class="actions">
+                        <a href="{% url 'post_detail' post.pk %}">Know more...</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer style="margin-top: 100px;">
+        <div class="footer">
+            <div class="contain">
+                <p>&copy; 2024 Created by Renuka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+    <script>
+        {% if messages %}
+            {% for message in messages %}
+                alert("{{ message }}");
+            {% endfor %}
+        {% endif %}
+    </script>
+{% endblock content %}

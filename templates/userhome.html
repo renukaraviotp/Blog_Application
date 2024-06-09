@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+
+<body>
+    <section class="slider_section position-relative hero_area">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators"></ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="detail-box">
+                                    <div>
+                                        <h1>
+                                            Welcome To <br>
+                                            <span>
+                                                World of Blogs...
+                                            </span>
+                                        </h1>
+                                        <p>
+                                            Blogging is just writing - writing using a particularly efficient type of publishing technology
+                                        </p>
+                                        <div class="btn-box">
+                                            <a href="" class="btn-1">
+                                                Get Started
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section>
+        <h2>Welcome  {{request.user.first_name}}</h2>
+        <div class="container">
+            <p style="font-weight: 600;"><i>A great headline mixed with a weak opening is like inviting someone into your house, only to slam 
+            the door in their face as they approach</i></p>
+        </div>
+    </section>
+    <br>
+    <section class="about_section layout_padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="detail-box">
+                <div class="heading_container">
+                  <h2>
+                    About Us
+                  </h2>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  Ipsum saepe qui quibusdam cumque illo eum, expedita dolore maiores suscipit, atque adipisci 
+                  ipsam asperiores laboriosam cupiditate nisi? Cumque, rem repellendus. Dignissimos.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="img-box">
+                <img src="{% static "images/s1.jpeg" %}" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <br>
+    <section class="contact_section">
+        <div class="container">
+          <div class="heading_container">
+            <h2>
+              Let's Get In Touch!
+            </h2>
+          </div>
+        </div>
+        <div class="container contact_bg layout_padding2-top">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="contact_form ">
+                <form action="">
+                    <br>
+                  <input type="text" placeholder="Name ">
+                  <input type="email" placeholder="Email">
+                  <input type="text" placeholder="Message" class="message_input">
+                  <button>
+                    Send
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="img-box">
+                <br>
+                <img src="{% static "images/contact.webp" %}" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    <footer style="margin-top: 100px;">
+        <div class="footer">
+          <div class="container">
+            <p>&copy; 2024 Created by Renuka. All rights reserved.</p>
+          </div>
+        </div>
+    </footer>
+</body>
+<script>
+    {% if messages %}
+        {% for message in messages %}
+            alert("{{ message }}");
+        {% endfor %}
+    {% endif %}
+</script>
+{% endblock content %}
