@@ -8,17 +8,9 @@ In this project, I have done a blog application with user authentication. This p
 create a database in XAMPP named as blog_db 
 open the code in visual studio code 
 open the terminal
-open cmd
+open command prompt 
 In cmd create a virtual enviorment ( mkvirtualenv env )
 Activate the virtual enviorment ( workon env )
-<<<<<<< HEAD
-Migrate the model by:
-python manage.py makemigrations
-python manage.py migrate
-Run the project by:
-python manage.py runserver
-```
-=======
 install django for the virtual environment by
 pip install django 
 Migrate the model by:
@@ -28,4 +20,4 @@ pip install mysqlclient ( if necessary)
 Run the project by:
 python manage.py runserver
 ```
->>>>>>> 72da6673f4ea8f87b13ea3b8b1362cddab5ee741
+
